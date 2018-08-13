@@ -14,10 +14,6 @@ export default class Card extends React.Component {
 }
 
 const styles = {
-	container: {
-		paddingTop:30,
-		flex: 1,
-		backgroundColor: '#fff',
-	},
-	post:{height:150,borderColor:'red',borderWidth:1,borderRadius:5,margin:4}
+	post:{
+		height:150,borderRadius:5,margin:4,	}
 }

@@ -1,0 +1,67 @@
+import React from 'react';
+import { TouchableOpacity, Text, View,Image } from 'react-native';
+import Ionicons from "react-native-vector-icons/Ionicons";
+
+import Card from '../Reusable/Card';
+
+export default class Post extends React.Component {
+	render() {
+		return (
+			<Card>
+				<View style={styles.post}>
+					<View style={styles.head}>
+						<Image
+							style={{width:40,height:40,borderRadius:40,}}
+							source={{uri: 'https://facebook.github.io/react-native/img/showcase/facebook.png'}}
+						/>
+
+					<Text style={{fontSize:16,fontWeight:'bold',}}>{this.props.user.name} </Text>
+				</View>
+				<View >
+					<Text style={{fontSize:16}}>{this.props.user.post} </Text>
+					<TouchableOpacity 
+						onPress={()=>{}}
+					>
+						<Ionicons
+							name={`ios-person-add${false ? '' : '-outline'}`}
+						size={50}
+						color="#2dbabc"
+					/>
+
+
+					</TouchableOpacity>
+
+				</View>
+				</View>
+			</Card>
+
+		);
+	}
+}
+
+const styles = {
+	head:{
+		flexDirection:'row',
+		justifyContent:'space-between',
+		margin:4,
+	},
+	post:{
+		backgroundColor:'#f8f8f8',
+		borderWidth: 1,
+		borderRadius: 2,
+		borderColor: '#ddd',
+		borderBottomWidth: 0,
+		shadowColor: '#000',
+		shadowOffset: { width: 0, height: 10 },
+		shadowOpacity: 0.8,
+		shadowRadius: 2,
+		elevation: 1,
+		marginLeft: 5,
+		marginRight: 5,
+		marginTop: 10,
+	}
+
+
+}
+
+//Add like icon on each post and posting icon on time line page use TouchableOpacity and Ionicons
