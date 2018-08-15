@@ -8,6 +8,7 @@ export default class Post extends React.Component {
 	render() {
 		return (
 			<Card>
+			
 				<View style={styles.post}>
 					<View style={styles.head}>
 						<Image
@@ -15,25 +16,39 @@ export default class Post extends React.Component {
 							source={{uri: 'https://facebook.github.io/react-native/img/showcase/facebook.png'}}
 						/>
 
-					<Text style={{fontSize:16,fontWeight:'bold',}}>{this.props.user.name} </Text>
-				</View>
-				<View >
+						<Text style={{fontSize:16,fontWeight:'bold',}}>{this.props.user.name} </Text>
+					</View>
 					<Text style={{fontSize:16}}>{this.props.user.post} </Text>
-					<TouchableOpacity 
-						onPress={()=>{}}
-					>
-						<Ionicons
-							name={`ios-person-add${false ? '' : '-outline'}`}
-						size={50}
-						color="#2dbabc"
-					/>
-
+					<View style={{flexDirection:'row',margin:4}}>
+						<TouchableOpacity
+							style={{width:20,height:20,borderRadius:20}}
+							onPress={()=>{}}
+						>
+							<Image
+								style={{height:10,flex:1}}
+								source={{uri:'https://cdn4.iconfinder.com/data/icons/basic-dashboard/512/Basic_Dashboard_UI_heart_love_like-512.png'}}
+							/>
 
 					</TouchableOpacity>
+					<View>
+						<Text>{this.props.user.likes} </Text>
+					</View>
+
+					<TouchableOpacity
+						style={{width:20,height:20,borderRadius:20,margin:4,}}
+						onPress={()=>{}}
+					>
+						<Image
+							style={{height:10,flex:1}}
+							source={{uri:'https://www.drupal.org/files/issues/comment_6.png'}}
+							/>
+						</TouchableOpacity>
+
+					</View>
 
 				</View>
-				</View>
-			</Card>
+
+				</Card>
 
 		);
 	}
@@ -46,6 +61,7 @@ const styles = {
 		margin:4,
 	},
 	post:{
+		flex:1,
 		backgroundColor:'#f8f8f8',
 		borderWidth: 1,
 		borderRadius: 2,

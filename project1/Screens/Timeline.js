@@ -1,29 +1,40 @@
 import React from 'react';
-import { Text, FlatList,Image,View } from 'react-native';
+import { Text, FlatList,Image,View,TouchableOpacity } from 'react-native';
 import expo from 'expo';
 
 import Post from './Post';
 import Users from './Data';
+import Header from '../Reusable/Header.js';
 
 
 export default class Timeline extends React.Component {
 	render() {
 
 		return (
+
 			<View style={{flex:1,}}>
-			<View style={styls.post}>
-				<Text style={{fontSize:25,alignSelf:'center'}}>TIMELINE </Text>
-			</View>
+				<Header style={styles.post}>
+					<Text style={{fontSize:25,alignSelf:'center'}}>TIMELINE </Text>
+				</Header>
 				<FlatList
 					data={Users}
 					renderItem={({item}) => <Post user={item}/>}
 				/>
+				<TouchableOpacity
+					style={{width:40,borderRadius:40,height:40}}
+					onPress={()=>{}}
+				>
+					<Text style={{fontSize:25,alignSelf:'center'}}>AddPost </Text>
+				</TouchableOpacity>
+
+
+				
 			</View>
 
 		);
 	}
 }
-styls={
+styles={
 post:{
 	backgroundColor:'#f8f8f8',
 	borderWidth: 1,
@@ -40,4 +51,3 @@ post:{
 	marginTop: 10,
 	},
 }
-//{Users.map(user=><Post key={user.key} user={user}/>)}

@@ -8,9 +8,7 @@ import Timeline from './Screens/Timeline';
 export default class App extends React.Component {
 	render() {
 		return (
-			<View style={styles.container} >
 				<Timeline/ >
-			</View>
 		);
 	}
 }
@@ -19,6 +17,6 @@ const styles = {
 	container: {
 		paddingTop:25,
 		flex: 1,
-		backgroundColor: '#fff',
+		backgroundColor: '#0000',
 	},
 }

@@ -1,8 +1,7 @@
-
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
-export default class Card extends React.Component {
+export default class Header extends React.Component {
 	render() {
 		return (
 			<View style={styles.post} >
@@ -15,5 +14,9 @@ export default class Card extends React.Component {
 
 const styles = {
 	post:{
-		height:170,borderRadius:5,margin:4,	}
+		height:80,
+		paddingTop:20,
+		backgroundColor: '#ed1a0b',
+
+	}
 }
