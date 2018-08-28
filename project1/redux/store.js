@@ -3,6 +3,9 @@ import {createPost} from './actions';
 import {reducers} from './reducers';
 import firebase from 'firebase'
 
+//createStore
+export const store=createStore(reducers)
+
 const getUser=async()=>{
 	// Initialize Firebase
 	var config = {
@@ -16,16 +19,23 @@ const getUser=async()=>{
 	try{
 
 		await firebase.initializeApp(config);
+		const {currentUser}=firebase.auth();
+		createUserDetails(currentUser);
 	}catch(err){
 		console.log(err)
 	}
 
 }
 
-//createStore
-export const store=createStore(reducers)
+const createUserDetails=(user)=>{
+	firebase.database().ref(`/users/${user.uid}/details`).on('value',snapshot=>{
+		console.log(snapshot.val())
+	
+		store.dispatch(createPost({image:'uri',user:'user Name1',text:'this is post from user1'}))
+	}
+	)
+}
+
 console.log(store.getState())
-
-store.dispatch(createPost({image:'uri',user:'user Name1',text:'this is post from user1'}))
-
+getUser();
 console.log(store.getState())
