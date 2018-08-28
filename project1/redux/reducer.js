@@ -5,9 +5,10 @@ const post='POST'
 const timeline='TIMELINE'
 
 //action creators
-const createPost=()=>({
+const createPost=(text)=>({
 	type:post,
 	payload:{
+		post:text,
 		likes:0,
 		comments:{},
 	}
@@ -28,6 +29,9 @@ const postReducer=(state={},action)=>{
 	}
 	return state
 }
+
+//reducer for updating timeline
+
 const timelineReducer=(state=[],action)=>{
 	if (action.type==timeline){
 		return [...state,action]
@@ -46,13 +50,6 @@ const store=createStore(reducers)
 
 console.log(store.getState())
 
+store.dispatch(createPost('this is post'))
 
-	//reducer for updating likes
-	//reducer for updating comments
-	//reducer for updating texts
-
-//reducer for updating timeline
-
-
-
-
+console.log(store.getState())
