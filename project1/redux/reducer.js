@@ -1,3 +1,6 @@
+const {createStore}=require('redux')
+const {combineReducers}=require('redux')
+
 const post='POST'
 const timeline='TIMELINE'
 
@@ -19,18 +22,30 @@ const createTimelne=()=>({
 
 
 //reducer for updating post
-const postReducer=(state,action)=>{
+const postReducer=(state={},action)=>{
 	if(action.type==post){
 		return {...state,action}
 	}
 	return state
 }
-const timelineReducer=(state,action)=>{
+const timelineReducer=(state=[],action)=>{
 	if (action.type==timeline){
-		return {...state,action}
+		return [...state,action]
 	}
 	return state
 }
+
+//combine reducers
+const reducers=combineReducers({
+	timeline:timelineReducer,
+	post:postReducer,
+})
+
+//createStore
+const store=createStore(reducers)
+
+console.log(store.getState())
+
 
 	//reducer for updating likes
 	//reducer for updating comments
@@ -40,6 +55,4 @@ const timelineReducer=(state,action)=>{
 
 
 
-//combine reducers
 
-//createStore
